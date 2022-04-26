@@ -1,0 +1,17 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.wrapper_buttons {
+  text-align: end;
+}
+
+.lang_switcher{
+  cursor:pointer
+}

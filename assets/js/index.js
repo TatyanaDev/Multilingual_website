@@ -1,3 +1,6 @@
+const lang_switchers = document.querySelectorAll('.lang_switcher')
+const data_translates = document.querySelectorAll('[data_translate]')
+
 const dictionary = {
   ru: {
     heading: 'Постоянный количественный рост ни к чему нас не обязывает!',
@@ -16,21 +19,18 @@ const dictionary = {
   }
 }
 
-const lang_switchers = document.querySelectorAll('.lang_switcher')
-const data_translates = document.querySelectorAll('[data_translate]')
-
-document.addEventListener('DOMContentLoaded', () => {
-  lang_switchers.forEach(lang_switcher => {
-    lang_switcher.addEventListener('click', event => {
-      data_translates.forEach(text_for_translation => {
-        text_for_translation.innerText =
-          dictionary[event.target.attributes.data_language.value][
-            text_for_translation.attributes.data_translate.value
-          ]
-      })
-    })
-  })
-})
+document.addEventListener('DOMContentLoaded', () =>
+  lang_switchers.forEach(lang_switcher =>
+    lang_switcher.addEventListener('click', event =>
+      data_translates.forEach(text_for_translation =>
+          (text_for_translation.innerText =
+            dictionary[event.target.attributes.data_language.value][
+              text_for_translation.attributes.data_translate.value
+            ])
+      )
+    )
+  )
+)
 
 // При ошибке 'document is not defined' обернуть все в:
 // if(typeof window==='object'){
